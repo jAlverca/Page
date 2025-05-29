@@ -3,140 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vercel Error Codes Reference</title>
+    <title>Vercel Error Codes</title>
     <style>
-        :root {
-            --vercel-blue: #0070f3;
-            --text-primary: #1a1a1a;
-            --text-secondary: #555;
-            --border-color: #eaeaea;
-            --background-light: #f9f9f9;
-            --background-card: #ffffff;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-            line-height: 1.7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: var(--background-light);
-            color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #f7f7f7;
+            color: #333;
         }
-
         .container {
-            max-width: 960px;
+            max-width: 900px;
             margin: 40px auto;
-            background-color: var(--background-card);
-            padding: 25px 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
         h1 {
             text-align: center;
-            color: var(--text-primary);
-            font-size: 2.5em;
-            margin-bottom: 25px;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
             padding-bottom: 15px;
         }
-
         h2 {
-            color: var(--vercel-blue);
-            font-size: 1.8em;
-            margin-top: 45px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--vercel-blue);
-            padding-bottom: 12px;
+            color: #0070f3; /* Vercel blue */
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
-
-        ul.error-list {
+        ul {
             list-style-type: none;
             padding: 0;
         }
-
-        li.error-item {
-            background-color: var(--background-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 18px 22px;
-            margin-bottom: 12px;
+        li {
+            background-color: #fdfdfd;
+            border: 1px solid #eaeaea;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+            transition: box-shadow 0.2s ease-in-out;
         }
-
-        li.error-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07);
+        li:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-
-        a.error-link {
-            color: var(--text-primary);
+        a {
+            color: #0070f3;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05em;
-        }
-        a.error-link:hover {
-            color: var(--vercel-blue);
-        }
-
-        .error-code-name {
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-        }
-
-        .error-details {
-            background-color: #f0f0f0;
-            color: var(--text-secondary);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            white-space: nowrap;
             font-weight: 500;
         }
-
+        a:hover {
+            text-decoration: underline;
+        }
+        .error-code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        .error-type {
+            background-color: #e9e9e9;
+            color: #555;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
         .intro-text, .support-note, .last-updated {
-            font-size: 1em;
-            color: var(--text-secondary);
-            margin-bottom: 25px;
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
         }
-        .support-note a {
-             color: var(--vercel-blue);
-             font-weight: 500;
-        }
-
         .last-updated {
             text-align: right;
-            font-size: 0.85em;
-            color: #777;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 30px;
         }
-
-        /* Simple responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 20px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            li.error-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .error-details {
-                margin-top: 8px;
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -147,92 +93,92 @@
             When developing your application with Vercel, you may encounter a variety of errors. They can reflect issues that happen with external providers such as domain services or internal problems at the level of your application's deployment or your usage of platform features.
         </p>
         <p class="intro-text">
-            For general error handling guidance that covers dashboard related errors, see <a href="/docs/errors/error-list" target="_blank" rel="noopener noreferrer">General Errors</a>.
+            For general error handling guidance, that covers dashboard related errors, see <a href="/docs/errors/error-list" target="_blank" rel="noopener noreferrer">[General Errors]</a>.
         </p>
 
         <section id="application-errors">
             <h2>Application Errors</h2>
-            <ul class="error-list">
-                <li class="error-item"><a href="/docs/errors/BODY_NOT_A_STRING_FROM_FUNCTION" class="error-link"><span class="error-code-name">BODY_NOT_A_STRING_FROM_FUNCTION</span></a> <span class="error-details">Function 502</span></li>
-                <li class="error-item"><a href="/docs/errors/MIDDLEWARE_INVOCATION_FAILED" class="error-link"><span class="error-code-name">MIDDLEWARE_INVOCATION_FAILED</span></a> <span class="error-details">Function 500</span></li>
-                <li class="error-item"><a href="/docs/errors/MIDDLEWARE_INVOCATION_TIMEOUT" class="error-link"><span class="error-code-name">MIDDLEWARE_INVOCATION_TIMEOUT</span></a> <span class="error-details">Function 504</span></li>
-                <li class="error-item"><a href="/docs/errors/EDGE_FUNCTION_INVOCATION_FAILED" class="error-link"><span class="error-code-name">EDGE_FUNCTION_INVOCATION_FAILED</span></a> <span class="error-details">Function 500</span></li>
-                <li class="error-item"><a href="/docs/errors/EDGE_FUNCTION_INVOCATION_TIMEOUT" class="error-link"><span class="error-code-name">EDGE_FUNCTION_INVOCATION_TIMEOUT</span></a> <span class="error-details">Function 504</span></li>
-                <li class="error-item"><a href="/docs/errors/FUNCTION_INVOCATION_FAILED" class="error-link"><span class="error-code-name">FUNCTION_INVOCATION_FAILED</span></a> <span class="error-details">Function 500</span></li>
-                <li class="error-item"><a href="/docs/errors/FUNCTION_INVOCATION_TIMEOUT" class="error-link"><span class="error-code-name">FUNCTION_INVOCATION_TIMEOUT</span></a> <span class="error-details">Function 504</span></li>
-                <li class="error-item"><a href="/docs/errors/FUNCTION_PAYLOAD_TOO_LARGE" class="error-link"><span class="error-code-name">FUNCTION_PAYLOAD_TOO_LARGE</span></a> <span class="error-details">Function 413</span></li>
-                <li class="error-item"><a href="/docs/errors/FUNCTION_RESPONSE_PAYLOAD_TOO_LARGE" class="error-link"><span class="error-code-name">FUNCTION_RESPONSE_PAYLOAD_TOO_LARGE</span></a> <span class="error-details">Function 500</span></li>
-                <li class="error-item"><a href="/docs/errors/FUNCTION_THROTTLED" class="error-link"><span class="error-code-name">FUNCTION_THROTTLED</span></a> <span class="error-details">Function 503</span></li>
-                <li class="error-item"><a href="/docs/errors/NO_RESPONSE_FROM_FUNCTION" class="error-link"><span class="error-code-name">NO_RESPONSE_FROM_FUNCTION</span></a> <span class="error-details">Function 502</span></li>
-                <li class="error-item"><a href="/docs/errors/MICROFRONTENDS_MIDDLEWARE_ERROR" class="error-link"><span class="error-code-name">MICROFRONTENDS_MIDDLEWARE_ERROR</span></a> <span class="error-details">Function 500</span></li>
-                <li class="error-item"><a href="/docs/errors/DEPLOYMENT_BLOCKED" class="error-link"><span class="error-code-name">DEPLOYMENT_BLOCKED</span></a> <span class="error-details">Deployment 403</span></li>
-                <li class="error-item"><a href="/docs/errors/DEPLOYMENT_PAUSED" class="error-link"><span class="error-code-name">DEPLOYMENT_PAUSED</span></a> <span class="error-details">Deployment 503</span></li>
-                <li class="error-item"><a href="/docs/errors/DEPLOYMENT_DISABLED" class="error-link"><span class="error-code-name">DEPLOYMENT_DISABLED</span></a> <span class="error-details">Deployment 402</span></li>
-                <li class="error-item"><a href="/docs/errors/DEPLOYMENT_NOT_FOUND" class="error-link"><span class="error-code-name">DEPLOYMENT_NOT_FOUND</span></a> <span class="error-details">Deployment 404</span></li>
-                <li class="error-item"><a href="/docs/errors/NOT_FOUND" class="error-link"><span class="error-code-name">NOT_FOUND</span></a> <span class="error-details">Deployment 404</span></li>
-                <li class="error-item"><a href="/docs/errors/DEPLOYMENT_DELETED" class="error-link"><span class="error-code-name">DEPLOYMENT_DELETED</span></a> <span class="error-details">Deployment 410</span></li>
-                <li class="error-item"><a href="/docs/errors/DEPLOYMENT_NOT_READY_REDIRECTING" class="error-link"><span class="error-code-name">DEPLOYMENT_NOT_READY_REDIRECTING</span></a> <span class="error-details">Deployment 303</span></li>
-                <li class="error-item"><a href="/docs/errors/INFINITE_LOOP_DETECTED" class="error-link"><span class="error-code-name">INFINITE_LOOP_DETECTED</span></a> <span class="error-details">Runtime 508</span></li>
-                <li class="error-item"><a href="/docs/errors/DNS_HOSTNAME_EMPTY" class="error-link"><span class="error-code-name">DNS_HOSTNAME_EMPTY</span></a> <span class="error-details">DNS 502</span></li>
-                <li class="error-item"><a href="/docs/errors/DNS_HOSTNAME_NOT_FOUND" class="error-link"><span class="error-code-name">DNS_HOSTNAME_NOT_FOUND</span></a> <span class="error-details">DNS 502</span></li>
-                <li class="error-item"><a href="/docs/errors/DNS_HOSTNAME_RESOLVE_FAILED" class="error-link"><span class="error-code-name">DNS_HOSTNAME_RESOLVE_FAILED</span></a> <span class="error-details">DNS 502</span></li>
-                <li class="error-item"><a href="/docs/errors/DNS_HOSTNAME_RESOLVED_PRIVATE" class="error-link"><span class="error-code-name">DNS_HOSTNAME_RESOLVED_PRIVATE</span></a> <span class="error-details">DNS 404</span></li>
-                <li class="error-item"><a href="/docs/errors/DNS_HOSTNAME_SERVER_ERROR" class="error-link"><span class="error-code-name">DNS_HOSTNAME_SERVER_ERROR</span></a> <span class="error-details">DNS 502</span></li>
-                <li class="error-item"><a href="/docs/errors/TOO_MANY_FORKS" class="error-link"><span class="error-code-name">TOO_MANY_FORKS</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/TOO_MANY_FILESYSTEM_CHECKS" class="error-link"><span class="error-code-name">TOO_MANY_FILESYSTEM_CHECKS</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/ROUTER_CANNOT_MATCH" class="error-link"><span class="error-code-name">ROUTER_CANNOT_MATCH</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/ROUTER_EXTERNAL_TARGET_CONNECTION_ERROR" class="error-link"><span class="error-code-name">ROUTER_EXTERNAL_TARGET_CONNECTION_ERROR</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/ROUTER_EXTERNAL_TARGET_ERROR" class="error-link"><span class="error-code-name">ROUTER_EXTERNAL_TARGET_ERROR</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/ROUTER_TOO_MANY_HAS_SELECTIONS" class="error-link"><span class="error-code-name">ROUTER_TOO_MANY_HAS_SELECTIONS</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/ROUTER_EXTERNAL_TARGET_HANDSHAKE_ERROR" class="error-link"><span class="error-code-name">ROUTER_EXTERNAL_TARGET_HANDSHAKE_ERROR</span></a> <span class="error-details">Routing 502</span></li>
-                <li class="error-item"><a href="/docs/errors/INVALID_REQUEST_METHOD" class="error-link"><span class="error-code-name">INVALID_REQUEST_METHOD</span></a> <span class="error-details">Request 405</span></li>
-                <li class="error-item"><a href="/docs/errors/MALFORMED_REQUEST_HEADER" class="error-link"><span class="error-code-name">MALFORMED_REQUEST_HEADER</span></a> <span class="error-details">Request 400</span></li>
-                <li class="error-item"><a href="/docs/errors/REQUEST_HEADER_TOO_LARGE" class="error-link"><span class="error-code-name">REQUEST_HEADER_TOO_LARGE</span></a> <span class="error-details">Request 431</span></li>
-                <li class="error-item"><a href="/docs/errors/RESOURCE_NOT_FOUND" class="error-link"><span class="error-code-name">RESOURCE_NOT_FOUND</span></a> <span class="error-details">Request 404</span></li>
-                <li class="error-item"><a href="/docs/errors/RANGE_END_NOT_VALID" class="error-link"><span class="error-code-name">RANGE_END_NOT_VALID</span></a> <span class="error-details">Request 416</span></li>
-                <li class="error-item"><a href="/docs/errors/RANGE_GROUP_NOT_VALID" class="error-link"><span class="error-code-name">RANGE_GROUP_NOT_VALID</span></a> <span class="error-details">Request 416</span></li>
-                <li class="error-item"><a href="/docs/errors/RANGE_MISSING_UNIT" class="error-link"><span class="error-code-name">RANGE_MISSING_UNIT</span></a> <span class="error-details">Request 416</span></li>
-                <li class="error-item"><a href="/docs/errors/RANGE_START_NOT_VALID" class="error-link"><span class="error-code-name">RANGE_START_NOT_VALID</span></a> <span class="error-details">Request 416</span></li>
-                <li class="error-item"><a href="/docs/errors/RANGE_UNIT_NOT_SUPPORTED" class="error-link"><span class="error-code-name">RANGE_UNIT_NOT_SUPPORTED</span></a> <span class="error-details">Request 416</span></li>
-                <li class="error-item"><a href="/docs/errors/TOO_MANY_RANGES" class="error-link"><span class="error-code-name">TOO_MANY_RANGES</span></a> <span class="error-details">Request 416</span></li>
-                <li class="error-item"><a href="/docs/errors/URL_TOO_LONG" class="error-link"><span class="error-code-name">URL_TOO_LONG</span></a> <span class="error-details">Request 414</span></li>
-                <li class="error-item"><a href="/docs/errors/INVALID_IMAGE_OPTIMIZE_REQUEST" class="error-link"><span class="error-code-name">INVALID_IMAGE_OPTIMIZE_REQUEST</span></a> <span class="error-details">Image 400</span></li>
-                <li class="error-item"><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_REQUEST_FAILED" class="error-link"><span class="error-code-name">OPTIMIZED_EXTERNAL_IMAGE_REQUEST_FAILED</span></a> <span class="error-details">Image 502</span></li>
-                <li class="error-item"><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_REQUEST_INVALID" class="error-link"><span class="error-code-name">OPTIMIZED_EXTERNAL_IMAGE_REQUEST_INVALID</span></a> <span class="error-details">Image 502</span></li>
-                <li class="error-item"><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_REQUEST_UNAUTHORIZED" class="error-link"><span class="error-code-name">OPTIMIZED_EXTERNAL_IMAGE_REQUEST_UNAUTHORIZED</span></a> <span class="error-details">Image 502</span></li>
-                <li class="error-item"><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_TOO_MANY_REDIRECTS" class="error-link"><span class="error-code-name">OPTIMIZED_EXTERNAL_IMAGE_TOO_MANY_REDIRECTS</span></a> <span class="error-details">Image 502</span></li>
-                <li class="error-item"><a href="/docs/errors/FALLBACK_BODY_TOO_LARGE" class="error-link"><span class="error-code-name">FALLBACK_BODY_TOO_LARGE</span></a> <span class="error-details">Cache 502</span></li>
+            <ul>
+                <li><a href="/docs/errors/BODY_NOT_A_STRING_FROM_FUNCTION" class="error-code">BODY_NOT_A_STRING_FROM_FUNCTION</a> <span class="error-type">Function 502</span></li>
+                <li><a href="/docs/errors/MIDDLEWARE_INVOCATION_FAILED" class="error-code">MIDDLEWARE_INVOCATION_FAILED</a> <span class="error-type">Function 500</span></li>
+                <li><a href="/docs/errors/MIDDLEWARE_INVOCATION_TIMEOUT" class="error-code">MIDDLEWARE_INVOCATION_TIMEOUT</a> <span class="error-type">Function 504</span></li>
+                <li><a href="/docs/errors/EDGE_FUNCTION_INVOCATION_FAILED" class="error-code">EDGE_FUNCTION_INVOCATION_FAILED</a> <span class="error-type">Function 500</span></li>
+                <li><a href="/docs/errors/EDGE_FUNCTION_INVOCATION_TIMEOUT" class="error-code">EDGE_FUNCTION_INVOCATION_TIMEOUT</a> <span class="error-type">Function 504</span></li>
+                <li><a href="/docs/errors/FUNCTION_INVOCATION_FAILED" class="error-code">FUNCTION_INVOCATION_FAILED</a> <span class="error-type">Function 500</span></li>
+                <li><a href="/docs/errors/FUNCTION_INVOCATION_TIMEOUT" class="error-code">FUNCTION_INVOCATION_TIMEOUT</a> <span class="error-type">Function 504</span></li>
+                <li><a href="/docs/errors/FUNCTION_PAYLOAD_TOO_LARGE" class="error-code">FUNCTION_PAYLOAD_TOO_LARGE</a> <span class="error-type">Function 413</span></li>
+                <li><a href="/docs/errors/FUNCTION_RESPONSE_PAYLOAD_TOO_LARGE" class="error-code">FUNCTION_RESPONSE_PAYLOAD_TOO_LARGE</a> <span class="error-type">Function 500</span></li>
+                <li><a href="/docs/errors/FUNCTION_THROTTLED" class="error-code">FUNCTION_THROTTLED</a> <span class="error-type">Function 503</span></li>
+                <li><a href="/docs/errors/NO_RESPONSE_FROM_FUNCTION" class="error-code">NO_RESPONSE_FROM_FUNCTION</a> <span class="error-type">Function 502</span></li>
+                <li><a href="/docs/errors/MICROFRONTENDS_MIDDLEWARE_ERROR" class="error-code">MICROFRONTENDS_MIDDLEWARE_ERROR</a> <span class="error-type">Function 500</span></li>
+                <li><a href="/docs/errors/DEPLOYMENT_BLOCKED" class="error-code">DEPLOYMENT_BLOCKED</a> <span class="error-type">Deployment 403</span></li>
+                <li><a href="/docs/errors/DEPLOYMENT_PAUSED" class="error-code">DEPLOYMENT_PAUSED</a> <span class="error-type">Deployment 503</span></li>
+                <li><a href="/docs/errors/DEPLOYMENT_DISABLED" class="error-code">DEPLOYMENT_DISABLED</a> <span class="error-type">Deployment 402</span></li>
+                <li><a href="/docs/errors/DEPLOYMENT_NOT_FOUND" class="error-code">DEPLOYMENT_NOT_FOUND</a> <span class="error-type">Deployment 404</span></li>
+                <li><a href="/docs/errors/NOT_FOUND" class="error-code">NOT_FOUND</a> <span class="error-type">Deployment 404</span></li>
+                <li><a href="/docs/errors/DEPLOYMENT_DELETED" class="error-code">DEPLOYMENT_DELETED</a> <span class="error-type">Deployment 410</span></li>
+                <li><a href="/docs/errors/DEPLOYMENT_NOT_READY_REDIRECTING" class="error-code">DEPLOYMENT_NOT_READY_REDIRECTING</a> <span class="error-type">Deployment 303</span></li>
+                <li><a href="/docs/errors/INFINITE_LOOP_DETECTED" class="error-code">INFINITE_LOOP_DETECTED</a> <span class="error-type">Runtime 508</span></li>
+                <li><a href="/docs/errors/DNS_HOSTNAME_EMPTY" class="error-code">DNS_HOSTNAME_EMPTY</a> <span class="error-type">DNS 502</span></li>
+                <li><a href="/docs/errors/DNS_HOSTNAME_NOT_FOUND" class="error-code">DNS_HOSTNAME_NOT_FOUND</a> <span class="error-type">DNS 502</span></li>
+                <li><a href="/docs/errors/DNS_HOSTNAME_RESOLVE_FAILED" class="error-code">DNS_HOSTNAME_RESOLVE_FAILED</a> <span class="error-type">DNS 502</span></li>
+                <li><a href="/docs/errors/DNS_HOSTNAME_RESOLVED_PRIVATE" class="error-code">DNS_HOSTNAME_RESOLVED_PRIVATE</a> <span class="error-type">DNS 404</span></li>
+                <li><a href="/docs/errors/DNS_HOSTNAME_SERVER_ERROR" class="error-code">DNS_HOSTNAME_SERVER_ERROR</a> <span class="error-type">DNS 502</span></li>
+                <li><a href="/docs/errors/TOO_MANY_FORKS" class="error-code">TOO_MANY_FORKS</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/TOO_MANY_FILESYSTEM_CHECKS" class="error-code">TOO_MANY_FILESYSTEM_CHECKS</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/ROUTER_CANNOT_MATCH" class="error-code">ROUTER_CANNOT_MATCH</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/ROUTER_EXTERNAL_TARGET_CONNECTION_ERROR" class="error-code">ROUTER_EXTERNAL_TARGET_CONNECTION_ERROR</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/ROUTER_EXTERNAL_TARGET_ERROR" class="error-code">ROUTER_EXTERNAL_TARGET_ERROR</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/ROUTER_TOO_MANY_HAS_SELECTIONS" class="error-code">ROUTER_TOO_MANY_HAS_SELECTIONS</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/ROUTER_EXTERNAL_TARGET_HANDSHAKE_ERROR" class="error-code">ROUTER_EXTERNAL_TARGET_HANDSHAKE_ERROR</a> <span class="error-type">Routing 502</span></li>
+                <li><a href="/docs/errors/INVALID_REQUEST_METHOD" class="error-code">INVALID_REQUEST_METHOD</a> <span class="error-type">Request 405</span></li>
+                <li><a href="/docs/errors/MALFORMED_REQUEST_HEADER" class="error-code">MALFORMED_REQUEST_HEADER</a> <span class="error-type">Request 400</span></li>
+                <li><a href="/docs/errors/REQUEST_HEADER_TOO_LARGE" class="error-code">REQUEST_HEADER_TOO_LARGE</a> <span class="error-type">Request 431</span></li>
+                <li><a href="/docs/errors/RESOURCE_NOT_FOUND" class="error-code">RESOURCE_NOT_FOUND</a> <span class="error-type">Request 404</span></li>
+                <li><a href="/docs/errors/RANGE_END_NOT_VALID" class="error-code">RANGE_END_NOT_VALID</a> <span class="error-type">Request 416</span></li>
+                <li><a href="/docs/errors/RANGE_GROUP_NOT_VALID" class="error-code">RANGE_GROUP_NOT_VALID</a> <span class="error-type">Request 416</span></li>
+                <li><a href="/docs/errors/RANGE_MISSING_UNIT" class="error-code">RANGE_MISSING_UNIT</a> <span class="error-type">Request 416</span></li>
+                <li><a href="/docs/errors/RANGE_START_NOT_VALID" class="error-code">RANGE_START_NOT_VALID</a> <span class="error-type">Request 416</span></li>
+                <li><a href="/docs/errors/RANGE_UNIT_NOT_SUPPORTED" class="error-code">RANGE_UNIT_NOT_SUPPORTED</a> <span class="error-type">Request 416</span></li>
+                <li><a href="/docs/errors/TOO_MANY_RANGES" class="error-code">TOO_MANY_RANGES</a> <span class="error-type">Request 416</span></li>
+                <li><a href="/docs/errors/URL_TOO_LONG" class="error-code">URL_TOO_LONG</a> <span class="error-type">Request 414</span></li>
+                <li><a href="/docs/errors/INVALID_IMAGE_OPTIMIZE_REQUEST" class="error-code">INVALID_IMAGE_OPTIMIZE_REQUEST</a> <span class="error-type">Image 400</span></li>
+                <li><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_REQUEST_FAILED" class="error-code">OPTIMIZED_EXTERNAL_IMAGE_REQUEST_FAILED</a> <span class="error-type">Image 502</span></li>
+                <li><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_REQUEST_INVALID" class="error-code">OPTIMIZED_EXTERNAL_IMAGE_REQUEST_INVALID</a> <span class="error-type">Image 502</span></li>
+                <li><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_REQUEST_UNAUTHORIZED" class="error-code">OPTIMIZED_EXTERNAL_IMAGE_REQUEST_UNAUTHORIZED</a> <span class="error-type">Image 502</span></li>
+                <li><a href="/docs/errors/OPTIMIZED_EXTERNAL_IMAGE_TOO_MANY_REDIRECTS" class="error-code">OPTIMIZED_EXTERNAL_IMAGE_TOO_MANY_REDIRECTS</a> <span class="error-type">Image 502</span></li>
+                <li><a href="/docs/errors/FALLBACK_BODY_TOO_LARGE" class="error-code">FALLBACK_BODY_TOO_LARGE</a> <span class="error-type">Cache 502</span></li>
             </ul>
         </section>
 
         <section id="platform-errors">
             <h2>Platform Errors</h2>
             <p class="support-note">
-                The following errors are related to the Vercel platform. If you encounter one of these errors, contact <a href="https://vercel.com/help" target="_blank" rel="noopener noreferrer">Vercel support</a>.
+                The following errors are related to the Vercel platform. If you encounter one of these errors, contact <a href="/help" target="_blank" rel="noopener noreferrer">Vercel support</a>.
             </p>
-            <ul class="error-list">
-                <li class="error-item"><a href="/docs/errors/INTERNAL_EDGE_FUNCTION_INVOCATION_FAILED" class="error-link"><span class="error-code-name">INTERNAL_EDGE_FUNCTION_INVOCATION_FAILED</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_EDGE_FUNCTION_INVOCATION_TIMEOUT" class="error-link"><span class="error-code-name">INTERNAL_EDGE_FUNCTION_INVOCATION_TIMEOUT</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_FUNCTION_INVOCATION_FAILED" class="error-link"><span class="error-code-name">INTERNAL_FUNCTION_INVOCATION_FAILED</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_FUNCTION_INVOCATION_TIMEOUT" class="error-link"><span class="error-code-name">INTERNAL_FUNCTION_INVOCATION_TIMEOUT</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_FUNCTION_NOT_FOUND" class="error-link"><span class="error-code-name">INTERNAL_FUNCTION_NOT_FOUND</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_FUNCTION_NOT_READY" class="error-link"><span class="error-code-name">INTERNAL_FUNCTION_NOT_READY</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_DEPLOYMENT_FETCH_FAILED" class="error-link"><span class="error-code-name">INTERNAL_DEPLOYMENT_FETCH_FAILED</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_UNARCHIVE_FAILED" class="error-link"><span class="error-code-name">INTERNAL_UNARCHIVE_FAILED</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_UNEXPECTED_ERROR" class="error-link"><span class="error-code-name">INTERNAL_UNEXPECTED_ERROR</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_ROUTER_CANNOT_PARSE_PATH" class="error-link"><span class="error-code-name">INTERNAL_ROUTER_CANNOT_PARSE_PATH</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_STATIC_REQUEST_FAILED" class="error-link"><span class="error-code-name">INTERNAL_STATIC_REQUEST_FAILED</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_OPTIMIZED_IMAGE_REQUEST_FAILED" class="error-link"><span class="error-code-name">INTERNAL_OPTIMIZED_IMAGE_REQUEST_FAILED</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_CACHE_ERROR" class="error-link"><span class="error-code-name">INTERNAL_CACHE_ERROR</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_CACHE_KEY_TOO_LONG" class="error-link"><span class="error-code-name">INTERNAL_CACHE_KEY_TOO_LONG</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_CACHE_LOCK_FULL" class="error-link"><span class="error-code-name">INTERNAL_CACHE_LOCK_FULL</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_CACHE_LOCK_TIMEOUT" class="error-link"><span class="error-code-name">INTERNAL_CACHE_LOCK_TIMEOUT</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_MISSING_RESPONSE_FROM_CACHE" class="error-link"><span class="error-code-name">INTERNAL_MISSING_RESPONSE_FROM_CACHE</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/FUNCTION_THROTTLED" class="error-link"><span class="error-code-name">FUNCTION_THROTTLED (Platform)</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><span class="error-code-name">INTERNAL_FUNCTION_SERVICE_UNAVAILABLE</span> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_MICROFRONTENDS_INVALID_CONFIGURATION_ERROR" class="error-link"><span class="error-code-name">INTERNAL_MICROFRONTENDS_INVALID_CONFIGURATION_ERROR</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_MICROFRONTENDS_BUILD_ERROR" class="error-link"><span class="error-code-name">INTERNAL_MICROFRONTENDS_BUILD_ERROR</span></a> <span class="error-details">Internal 500</span></li>
-                <li class="error-item"><a href="/docs/errors/INTERNAL_MICROFRONTENDS_UNEXPECTED_ERROR" class="error-link"><span class="error-code-name">INTERNAL_MICROFRONTENDS_UNEXPECTED_ERROR</span></a> <span class="error-details">Internal 500</span></li>
+            <ul>
+                <li><a href="/docs/errors/INTERNAL_EDGE_FUNCTION_INVOCATION_FAILED" class="error-code">INTERNAL_EDGE_FUNCTION_INVOCATION_FAILED</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_EDGE_FUNCTION_INVOCATION_TIMEOUT" class="error-code">INTERNAL_EDGE_FUNCTION_INVOCATION_TIMEOUT</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_FUNCTION_INVOCATION_FAILED" class="error-code">INTERNAL_FUNCTION_INVOCATION_FAILED</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_FUNCTION_INVOCATION_TIMEOUT" class="error-code">INTERNAL_FUNCTION_INVOCATION_TIMEOUT</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_FUNCTION_NOT_FOUND" class="error-code">INTERNAL_FUNCTION_NOT_FOUND</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_FUNCTION_NOT_READY" class="error-code">INTERNAL_FUNCTION_NOT_READY</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_DEPLOYMENT_FETCH_FAILED" class="error-code">INTERNAL_DEPLOYMENT_FETCH_FAILED</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_UNARCHIVE_FAILED" class="error-code">INTERNAL_UNARCHIVE_FAILED</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_UNEXPECTED_ERROR" class="error-code">INTERNAL_UNEXPECTED_ERROR</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_ROUTER_CANNOT_PARSE_PATH" class="error-code">INTERNAL_ROUTER_CANNOT_PARSE_PATH</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_STATIC_REQUEST_FAILED" class="error-code">INTERNAL_STATIC_REQUEST_FAILED</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_OPTIMIZED_IMAGE_REQUEST_FAILED" class="error-code">INTERNAL_OPTIMIZED_IMAGE_REQUEST_FAILED</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_CACHE_ERROR" class="error-code">INTERNAL_CACHE_ERROR</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_CACHE_KEY_TOO_LONG" class="error-code">INTERNAL_CACHE_KEY_TOO_LONG</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_CACHE_LOCK_FULL" class="error-code">INTERNAL_CACHE_LOCK_FULL</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_CACHE_LOCK_TIMEOUT" class="error-code">INTERNAL_CACHE_LOCK_TIMEOUT</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_MISSING_RESPONSE_FROM_CACHE" class="error-code">INTERNAL_MISSING_RESPONSE_FROM_CACHE</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/FUNCTION_THROTTLED" class="error-code">FUNCTION_THROTTLED (Platform)</a> <span class="error-type">Internal 500</span></li> <!-- Note: FUNCTION_THROTTLED appears twice, differentiating here -->
+                <li><span class="error-code">INTERNAL_FUNCTION_SERVICE_UNAVAILABLE</span> <span class="error-type">Internal 500</span></li> <!-- No link provided for this one -->
+                <li><a href="/docs/errors/INTERNAL_MICROFRONTENDS_INVALID_CONFIGURATION_ERROR" class="error-code">INTERNAL_MICROFRONTENDS_INVALID_CONFIGURATION_ERROR</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_MICROFRONTENDS_BUILD_ERROR" class="error-code">INTERNAL_MICROFRONTENDS_BUILD_ERROR</a> <span class="error-type">Internal 500</span></li>
+                <li><a href="/docs/errors/INTERNAL_MICROFRONTENDS_UNEXPECTED_ERROR" class="error-code">INTERNAL_MICROFRONTENDS_UNEXPECTED_ERROR</a> <span class="error-type">Internal 500</span></li>
             </ul>
         </section>
 
